@@ -14,7 +14,7 @@ class ChatGPTAPIView(APIView):
     def post(self, request):
         serializer = ChatGPTSerializer(data=request.data)
         if serializer.is_valid():
-            openai.api_key = "API_SECRET_KEY"
+            openai.api_key = "API_SECRET_KEY" # get your API Key at OpenAPI ChatGPT in their docs
             prompt = serializer.validated_data['prompt']
             response = openai.Completion.create(
                 engine="text-davinci-002",
